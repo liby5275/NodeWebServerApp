@@ -1,3 +1,4 @@
+
 var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
     targetUrl = 'https://www.metaweather.com/api/location/search/?query=',
     targetUrl2 = 'https://www.metaweather.com/api/location/'
@@ -15,6 +16,25 @@ weatherLoc.addEventListener('submit',(e) => {
 
     const loc = searchValue.value
     console.log('location is ' +loc)
+
+    fetch('/weather?address='+loc).then((response) => {
+        response.json().then((data) => {
+            console.log(data)
+            if(data.error != undefined) {
+                message1.textContent = 'No location named '+ loc + ' found. Please try another'
+                message2.textContent =''
+                message3.textContent =''
+            } else {
+            message1.textContent = 'Its '+ data.weatherInfo + ' in '+loc
+            message2.textContent ='Min Temperature: ' + data.minTemp 
+            message3.textContent ='Max Temperature: ' + data.maxTemp
+            }
+        })
+    })
+
+    /*
+    below code is directly accessing the json from the real time environment.
+    So, we are not calling the local url here
 
     fetch(proxyUrl + targetUrl + loc).then((response) =>{
         response.json().then((data) => {
@@ -37,6 +57,7 @@ weatherLoc.addEventListener('submit',(e) => {
             }
         })
     }) 
+    */
 
 })
 

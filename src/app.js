@@ -4,6 +4,7 @@ const hbs = require('hbs')
 const express = require('express')
 
 const app = express()
+const port = process.env.PORT || 3000
 
 //paths for express reference
 const dynamicPath = path.join(__dirname, '../public')
@@ -65,7 +66,9 @@ app.get('/weather',(req, res) => {
 
             res.send({
                 location:req.query.address,
-                weatherInfo:callbackWeather.weather_state_name
+                weatherInfo:callbackWeather.weather_state_name,
+                minTemp:callbackWeather.min_temp,
+                maxTemp:callbackWeather.max_temp
             })
 
 
@@ -73,6 +76,8 @@ app.get('/weather',(req, res) => {
     })
     
 })
+
+
 
 app.get('*', (req,res) => {
     res.render('404')
@@ -107,6 +112,6 @@ please note that you need to specify the '.html' part in the url. IT is not url 
 to deliver the file. URL would be localhost:3000/about
 */
 
-app.listen(3000,() =>{
-    console.log('server up on port 3000')
+app.listen(port,() =>{
+    console.log('server up on port '+port)
 } )
