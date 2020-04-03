@@ -1,0 +1,55 @@
+h1{
+    margin-top: 75px;
+    color: darkgreen;
+    font-size: 25px;
+    text-align: center;
+}
+
+img{
+    height: 75%;
+    
+    width:50%;
+    border:red;
+    margin-left: 25%;
+    border-radius: 200px;
+}
+
+h2{
+    color:black;
+    text-align: center;
+}
+
+.box{
+    margin-top: 75px;
+    margin-bottom: 50px;
+    height: 100px;
+    width: 100%;
+}
+
+.tab{
+    margin-top:75px;
+    font-size: 25px;
+    text-align: center;
+    margin-right: 30px;
+}
+
+a{
+    font-style: italic;
+    margin-left: 75px;
+    
+}
+
+.body{
+    border-color:darkkhaki ;
+}
+
+.form-data{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.messageP{
+    color: black;
+    text-align: center;
+    font-size: x-large;
+}
